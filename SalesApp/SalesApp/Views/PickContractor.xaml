@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SalesApp.Helpers"
+             x:Class="SalesApp.Views.PickContractor"
+             BackgroundColor="{Binding BackgroundColor}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="searchBar" BackgroundColor="#2196f1"  FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="White"
+                       PlaceholderColor="White" Placeholder="Wyszukaj..." CancelButtonColor="White" TextChanged="searchBar_TextChanged"></SearchBar>
+            <Label  Text="Wybierz nabywcę:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="18" FontAttributes="Bold" Margin="10"></Label>
+            <local:ClickedListView x:Name="ContractorsList" RowHeight="80" SelectionMode="None" ItemsSource="{Binding ContractorsList}" ItemClickCommand="{Binding ContractorClickCommand}"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="#2196f1"/>
+                                <Label Text="{Binding NIP}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="#757575"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </local:ClickedListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+                <Button x:Name="btnCancel" BackgroundColor="{Binding BackgroundColor}" Command="{Binding GoBackFromEditCommand}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.Views.GoodsEditPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{Binding BackgroundColor}"
+             xmlns:effects="clr-namespace:SalesApp.Effects">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <ScrollView>
+                <StackLayout>
+                    <Label  Text="Dodaj nowy towar" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="18" FontAttributes="Bold"></Label>
+                    <BoxView Style="{StaticResource Separator}" />
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Nazwa:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}"  BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" >
+                            <Entry x:Name="ProductName" Text="{Binding ProductFullNameTxt}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Keyboard>
+                                    <Keyboard x:FactoryMethod="Create">
+                                        <x:Arguments>
+                                            <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                        </x:Arguments>
+                                    </Keyboard>
+                                </Entry.Keyboard>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Cena:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}"  BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" >
+                            <Entry x:Name="ProductValue" Text="{Binding ProductValueTxt}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}" Keyboard="Telephone">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Stawka VAT:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}"  BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" >
+                            <Picker x:Name="PickTax" HorizontalTextAlignment="Center" TextColor="{Binding FieldsTextColor}" Title="Stawka:     " ItemsSource="{Binding TaxList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTax}">
+                                <Picker.Effects>
+                                    <effects:PlainEntry/>
+                                </Picker.Effects>
+                            </Picker>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Jednostka:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}"  BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Picker x:Name="PickUnit" HorizontalTextAlignment="Center" TextColor="{Binding FieldsTextColor}" Title="Jednostka:" ItemsSource="{Binding UnitsList}" ItemDisplayBinding="{Binding ShortCut}" SelectedItem="{Binding SelectedUnit}">
+                                <Picker.Effects>
+                                    <effects:PlainEntry/>
+                                </Picker.Effects>
+                            </Picker>
+                        </Frame>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource Separator}" />
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnCancelEdit" Command="{Binding GoBackFromEditCommand}" BackgroundColor="{Binding BackgroundColor}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+                <Button x:Name="btnSave" Command="{Binding UpdateCommand}" Text="Zapisz" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

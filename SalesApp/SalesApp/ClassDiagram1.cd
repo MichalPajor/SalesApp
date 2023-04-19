@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SalesApp.Fiscal.Crc" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQ=</HashCode>
+      <FileName>Fiscal\Crc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Fiscal.Mazovia" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAA=</HashCode>
+      <FileName>Fiscal\Mazovia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Fiscal.Packet" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAIAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Fiscal\Packet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Fiscal.Packets" Collapsed="true">
+    <Position X="17.5" Y="3.25" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAgAAAAAABBAAAIAAAAAAAEAAEAAAAAAoAAAAAA=</HashCode>
+      <FileName>Fiscal\Packets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Fiscal.TCPConnection" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAACEEAAAAAAACAAEAAABAAAAACAAAQAAgIAAAgAAE=</HashCode>
+      <FileName>Fiscal\TCPConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Fiscal.StateObject" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACCAEAAAAAAAAAAAAAAABAEAAAAAA=</HashCode>
+      <FileName>Fiscal\TCPConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="10.25" Y="2" Width="3.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SalesApp.Models.AppSettings" Collapsed="true">
+    <Position X="13" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\AppSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Models.Goods" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAAgAAABAAA=</HashCode>
+      <FileName>Models\Goods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Models.MainMenuItem" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQCgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MainMenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Models.ReceiptItem" Collapsed="true">
+    <Position X="9.25" Y="9" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAIAAAAAQAAAAAAAAAAgAggAAACAA=</HashCode>
+      <FileName>Models\ReceiptItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Models.Sales" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAgAAAIAAA=</HashCode>
+      <FileName>Models\Sales.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Models.TaxRates" Collapsed="true">
+    <Position X="19" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAACA=</HashCode>
+      <FileName>Models\TaxRates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Models.Units" Collapsed="true">
+    <Position X="12.75" Y="9" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\Units.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.ViewModels.AboutViewModel" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>ViewModels\AboutViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.ViewModels.ConnectViewModel" Collapsed="true">
+    <Position X="1.25" Y="7.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ABEAAAAgEAAAAgAAoACAAIAAiAAAgAgIAAEAAAACCAA=</HashCode>
+      <FileName>ViewModels\ConnectViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SalesApp.ViewModels.GoodsViewModel" Collapsed="true">
+    <Position X="6.5" Y="7.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>IAKEgEAgEIAAABQBJAAAARBAiBAAAUEECAAABAAEAFA=</HashCode>
+      <FileName>ViewModels\GoodsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SalesApp.ViewModels.MainMenuViewModel" Collapsed="true">
+    <Position X="4" Y="5.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAABAAAAAAAAACAAAAA=</HashCode>
+      <FileName>ViewModels\MainMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.ViewModels.MeasuresViewModel" Collapsed="true">
+    <Position X="12.5" Y="4.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAWAIAABAAIAAAAAAAgBAAgAEACAAAAAAEAAQ=</HashCode>
+      <FileName>ViewModels\MeasuresViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SalesApp.ViewModels.ReportsViewModel" Collapsed="true">
+    <Position X="13.25" Y="6.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>BQBmBBAAEQ4iYwAAKEAQAAEAhQYACAFAAAAAAAUAIIA=</HashCode>
+      <FileName>ViewModels\ReportsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SalesApp.ViewModels.SaleViewModel" Collapsed="true">
+    <Position X="16.5" Y="5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAHQBABYIJAQBASMIEAABaA6iZsCAACgAAB0gACEgQ=</HashCode>
+      <FileName>ViewModels\SaleViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SalesApp.ViewModels.TaxRatesViewModel" Collapsed="true">
+    <Position X="5.5" Y="2" Width="4" />
+    <TypeIdentifier>
+      <HashCode>CAQAAIAEEggAwD8AIAQAAAAAgAAJAAEAAFAgAAAEAAg=</HashCode>
+      <FileName>ViewModels\TaxRatesViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SalesApp.Helpers.ClickedListView" Collapsed="true">
+    <Position X="18" Y="6" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACAQAAAAAAAA=</HashCode>
+      <FileName>Helpers\ClickedListView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Helpers.ContentPageHelper" Collapsed="true">
+    <Position X="18.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\ContentPageHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Helpers.ObservableCollectionPropertyNotify&lt;T&gt;" Collapsed="true">
+    <Position X="18" Y="7.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\ObservableCollectionPropertyNotify.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.SQLite.SQLiteHelper" Collapsed="true">
+    <Position X="6" Y="6.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAAAAAQICQAAAAIAEAACAIAWAAAQQFBACAAgAEAIA=</HashCode>
+      <FileName>Helpers\SQLiteHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SalesApp.Helpers.ViewModelLocator" Collapsed="true">
+    <Position X="13.25" Y="7.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAABAAAAEAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Helpers\ViewModelLocator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

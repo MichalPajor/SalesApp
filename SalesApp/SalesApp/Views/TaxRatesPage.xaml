@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.Views.TaxRatesPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:effects="clr-namespace:SalesApp.Effects"
+             BackgroundColor="{Binding BackgroundColor}">
+    <ContentPage.Content>
+        <StackLayout Margin="10" >
+            <ScrollView>
+                <StackLayout>
+                    <Label  Text="Stawki VAT" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="18" FontAttributes="Bold"></Label>
+                    <BoxView Style="{StaticResource Separator}" />
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Stawka A:" FontAttributes="Bold" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="16" Margin="0,0,15,0"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="70">
+                            <Entry x:Name="TaxA" Text="{Binding ValueA}" TextColor="{Binding FieldsTextColor}" Keyboard="Numeric" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <CheckBox x:Name="ChBoxA" IsChecked="{Binding FreeA}" CheckedChanged="ChBoxA_CheckedChanged" HorizontalOptions="Start"/>
+                        <Label  Text="Zwolniona" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="Start" FontSize="16" Margin="0,0,5,0"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Stawka B:" FontAttributes="Bold" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="16" Margin="0,0,15,0"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="70">
+                            <Entry x:Name="TaxB" Text="{Binding ValueB}" TextColor="{Binding FieldsTextColor}" Keyboard="Numeric" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <CheckBox x:Name="ChBoxB" IsChecked="{Binding FreeB}" CheckedChanged="ChBoxB_CheckedChanged" HorizontalOptions="Start"/>
+                        <Label  Text="Zwolniona" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="Start" FontSize="16" Margin="0,0,5,0"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Stawka C:" FontAttributes="Bold" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="16" Margin="0,0,15,0"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="70">
+                            <Entry x:Name="TaxC" Text="{Binding ValueC}" TextColor="{Binding FieldsTextColor}" Keyboard="Numeric" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <CheckBox x:Name="ChBoxC" IsChecked="{Binding FreeC}" CheckedChanged="ChBoxC_CheckedChanged" HorizontalOptions="Start"/>
+                        <Label  Text="Zwolniona" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="Start" FontSize="16" Margin="0,0,5,0"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Stawka D:" FontAttributes="Bold" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="16" Margin="0,0,15,0"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="70">
+                            <Entry x:Name="TaxD" Text="{Binding ValueD}" TextColor="{Binding FieldsTextColor}" Keyboard="Numeric" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <CheckBox x:Name="ChBoxD" IsChecked="{Binding FreeD}" CheckedChanged="ChBoxD_CheckedChanged" HorizontalOptions="Start"/>
+                        <Label  Text="Zwolniona" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="Start" FontSize="16" Margin="0,0,5,0"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Stawka E:" FontAttributes="Bold" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="16" Margin="0,0,15,0"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="70">
+                            <Entry x:Name="TaxE" Text="{Binding ValueE}" TextColor="{Binding FieldsTextColor}" Keyboard="Numeric" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <CheckBox x:Name="ChBoxE" IsChecked="{Binding FreeE}" CheckedChanged="ChBoxE_CheckedChanged" HorizontalOptions="Start"/>
+                        <Label  Text="Zwolniona" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="Start" FontSize="16" Margin="0,0,5,0"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Stawka F:" FontAttributes="Bold" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="16" Margin="0,0,15,0"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="70">
+                            <Entry x:Name="TaxF" Text="{Binding ValueF}" TextColor="{Binding FieldsTextColor}" Keyboard="Numeric" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <CheckBox x:Name="ChBoxF" IsChecked="{Binding FreeF}" CheckedChanged="ChBoxF_CheckedChanged" HorizontalOptions="Start"/>
+                        <Label  Text="Zwolniona" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="Start" FontSize="16" Margin="0,0,5,0"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Stawka G:" FontAttributes="Bold" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="16" Margin="0,0,15,0"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="70">
+                            <Entry x:Name="TaxG" Text="{Binding ValueG}" TextColor="{Binding FieldsTextColor}" Keyboard="Numeric" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <CheckBox x:Name="ChBoxG" IsChecked="{Binding FreeG}" CheckedChanged="ChBoxG_CheckedChanged" HorizontalOptions="Start"/>
+                        <Label  Text="Zwolniona" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="Start" FontSize="16" Margin="0,0,5,0"></Label>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource Separator}" />
+                    <Button x:Name="btnSave" Command="{Binding SaveCommand}" WidthRequest="100" Text="Zapisz" FontSize="16" VerticalOptions="End" HorizontalOptions="End" Style="{StaticResource BtnOkStyle}"></Button>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnCancel" Command="{Binding GoBackCommand}" BackgroundColor="{Binding BackgroundColor}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+                <Button x:Name="btnSend" Command="{Binding SetTaxRatesCommand}" Text="Zaprogramuj" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

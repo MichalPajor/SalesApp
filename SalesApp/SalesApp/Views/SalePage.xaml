@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SalesApp.Helpers"
+            x:Class="SalesApp.Views.SalePage"
+            NavigationPage.HasNavigationBar="False"
+            BackgroundColor="{Binding BackgroundColor}">
+  <!--Pages can be added as references or inline-->
+
+    <ContentPage Title="Towary">
+        <ContentPage.Resources>
+            <Style TargetType="Grid">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                        Value="#deecff" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ContentPage.Resources>
+        <StackLayout>
+            <SearchBar x:Name="searchBar" BackgroundColor="#2196f1"  FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="White"
+                       PlaceholderColor="White" Placeholder="Wyszukaj..." CancelButtonColor="White" TextChanged="searchBar_TextChanged" ></SearchBar>
+            <CollectionView x:Name="ProductsList" ItemsSource="{Binding ProductsList}" SelectionMode="Multiple" SelectedItems="{Binding MySelectedItems, Mode=TwoWay}" 
+                            SelectionChangedCommand="{Binding SelectionCommand}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" Margin="10,20,10,20">
+                                    <Label Text="{Binding Name}" FontSize="14" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="#2196f1"/>
+                                    <Label Text="{Binding Value}" FontSize="14" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="#757575"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+                <Button x:Name="btnCancel" Command="{Binding CancelReceiptCommand}" BackgroundColor="{Binding BackgroundColor}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="{Binding ReceiptItemsCount, StringFormat='Koszyk [{0}]'}">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="10">
+                <Frame Style="{StaticResource FrameFormStyle}"  HeightRequest="43" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                    <Label FontSize="16" TextColor="{Binding FieldsTextColor}" Text="{Binding SumValue, StringFormat='Suma: {0}'}"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Frame>
+                <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" HeightRequest="43" VerticalOptions="End" HorizontalOptions="FillAndExpand" BorderColor="#2196f1" >
+                    <Label FontSize="16" TextColor="#2196f1" Text="{Binding DiscountValue, StringFormat='Rabaty: {0}'}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Frame>
+            </StackLayout>
+            <local:ClickedListView x:Name="ReceiptList" RowHeight="60" SelectionMode="None" ItemsSource="{Binding ReceiptItems}" ItemClickCommand="{Binding ProductClickCommand}" VerticalOptions="FillAndExpand" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                    <Label Text="{Binding Name}" FontSize="16" VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#2196f1"/>
+                                    <Label Text="{Binding Value, StringFormat='Cena: {0}'}"  VerticalOptions="Start" HorizontalOptions="EndAndExpand" TextColor="#757575" MinimumWidthRequest="100"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Quantity, StringFormat='Ilość: {0}'}" VerticalOptions="End" HorizontalOptions="Start" TextColor="#757575"/>
+                                    <Label Text="{Binding Unit}" VerticalOptions="End" HorizontalOptions="StartAndExpand" TextColor="#757575"/>
+                                    <Label Text="{Binding Discount, StringFormat='Rabat: {0}'}" VerticalOptions="End" HorizontalOptions="EndAndExpand" TextColor="#757575"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </local:ClickedListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Margin="10">
+                <Button x:Name="btnCancelReceipt" BackgroundColor="{Binding BackgroundColor}" Command="{Binding ClearReceiptCommand}" Text="Wyczyść" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+                <Button x:Name="btnPay" Command="{Binding PayCommand}" Text="Drukuj" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

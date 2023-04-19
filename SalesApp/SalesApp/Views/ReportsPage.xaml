@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+            xmlns:effects="clr-namespace:SalesApp.Effects"
+            x:Class="SalesApp.Views.ReportsPage"
+            NavigationPage.HasNavigationBar="False">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Dzienny" x:Name="DailyTabbedPage" BackgroundColor="{Binding BackgroundColor}">
+        <StackLayout Margin="10">
+            <ScrollView>
+                <StackLayout >
+                    <Frame Style="{StaticResource FrameFormStyle}"  BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="End" HorizontalOptions="Start" HeightRequest="43" WidthRequest="193">
+                        <Label FontSize="16" TextColor="{Binding FieldsTextColor}" Text="{Binding SumValue}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                    <ScrollView Orientation="Both">
+                        <forms:ChartView x:Name="Chart" Chart="{Binding MyBarChart}" HeightRequest="480"  WidthRequest="{Binding DailyWidth}" VerticalOptions="FillAndExpand"/>
+                    </ScrollView>
+                </StackLayout>
+            </ScrollView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnCancel" Command="{Binding GoBackCommand}" BackgroundColor="{Binding BackgroundColor}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+            <Button x:Name="btnPrintDaily" Command="{Binding PrintDailyCommand}" Text="Drukuj" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Miesięczny" x:Name="monthlyTabbedPage" BackgroundColor="{Binding BackgroundColor}">
+        <StackLayout Margin="10">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Frame Style="{StaticResource FrameFormStyle}"  BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="43" >
+                        <Label FontSize="16" TextColor="{Binding FieldsTextColor}" Text="{Binding SumMonthlyValue}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                    <Frame Style="{StaticResource FrameFormStyle}" VerticalOptions="End" BackgroundColor="{Binding BackgroundColor}" HorizontalOptions="FillAndExpand" BorderColor="#2196f1" >
+                        <Picker x:Name="PickMonth" HorizontalTextAlignment="Center"  FontSize="16"  TextColor="#2196f1" Title="Miesiąc:" ItemsSource="{Binding MonthList}" SelectedIndex="{Binding SelectedMonth}">
+                            <Picker.Effects>
+                                <effects:PlainEntry/>
+                            </Picker.Effects>
+                        </Picker>
+                    </Frame>
+                </StackLayout>
+                <ScrollView Orientation="Both">
+                    <forms:ChartView x:Name="MonthlyChart" Chart="{Binding MyMonthlyBarChart}" HeightRequest="480" WidthRequest="{Binding MonthlyWidth}" VerticalOptions="FillAndExpand" />
+                </ScrollView>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnMonthlyCancel" BackgroundColor="{Binding BackgroundColor}" Command="{Binding GoBackCommand}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+                <Button x:Name="btnPrintMonthly" Command="{Binding PrintMonthlyCommand}" Text="Drukuj" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Okresowy" x:Name="PeriodicalTabbedPage" BackgroundColor="{Binding BackgroundColor}">
+        <StackLayout Margin="10">
+            <ScrollView>
+                <StackLayout>
+                    <Label  Text="Zakres dat:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="Start" FontAttributes="Bold" FontSize="18" Margin="0,10,0,0"></Label>
+                    <BoxView Style="{StaticResource Separator}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="43" >
+                            <DatePicker FontSize="16" TextColor="{Binding FieldsTextColor}" HorizontalOptions="Center" VerticalOptions="Center" Date="{Binding FromDate}" >
+                                <DatePicker.Effects>
+                                    <effects:PlainEntry/>
+                                </DatePicker.Effects>
+                            </DatePicker>
+                        </Frame>
+                        <Label FontSize="16" TextColor="{Binding FieldsTextColor}" Text="-" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="43" >
+                            <DatePicker FontSize="16" TextColor="{Binding FieldsTextColor}" HorizontalOptions="Center" VerticalOptions="Center" Date="{Binding ToDate}">
+                                <DatePicker.Effects>
+                                    <effects:PlainEntry/>
+                                </DatePicker.Effects>
+                            </DatePicker>
+                        </Frame>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource Separator}" Margin="0,10,0,10" />
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="43" >
+                            <Label FontSize="16" TextColor="{Binding FieldsTextColor}" Text="{Binding PeroidSum}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Frame>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}"  VerticalOptions="End" HorizontalOptions="FillAndExpand" BorderColor="#2196f1" HeightRequest="43">
+                            <Label FontSize="16" TextColor="#2196f1" Text="{Binding PeroidReceipts}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnPeroidCancel" BackgroundColor="{Binding BackgroundColor}" Command="{Binding GoBackCommand}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+                <Button x:Name="btnPeroidPrintDaily" Command="{Binding PrintPeriodicalCommand}" Text="Drukuj" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

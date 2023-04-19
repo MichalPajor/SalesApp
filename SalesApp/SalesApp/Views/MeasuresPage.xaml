@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SalesApp.Helpers" xmlns:viewmodels="clr-namespace:SalesApp.ViewModels" xmlns:models="clr-namespace:SalesApp.Models"
+            x:Class="SalesApp.Views.MeasuresPage"
+            NavigationPage.HasNavigationBar="False"
+            xmlns:effects="clr-namespace:SalesApp.Effects"
+            BackgroundColor="{Binding BackgroundColor}">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Przeglądaj">
+        <StackLayout>
+            <SearchBar x:Name="searchBar" BackgroundColor="#2196f1"  FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="White"
+                       PlaceholderColor="White" Placeholder="Wyszukaj..." CancelButtonColor="White" TextChanged="searchBar_TextChanged"></SearchBar>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            </StackLayout>
+            <local:ClickedListView  x:Name="UnitsList" RowHeight="60" SelectionMode="None" ItemsSource="{Binding UnitsList}" ItemClickCommand="{Binding ItemClickCommand}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" TextColor="#2196f1" Detail="{Binding ShortCut}" DetailColor="#757575"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </local:ClickedListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+                <Button x:Name="btnCancel" Command="{Binding GoBackCommand}" BackgroundColor="{Binding BackgroundColor}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Dodaj">
+        <StackLayout Margin="10">
+            <ScrollView>
+                <StackLayout>
+                    <Label  Text="Dodaj nową jednostkę miary" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="18" FontAttributes="Bold"></Label>
+                    <BoxView Style="{StaticResource Separator}" />
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Pełna nazwa:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="MeasureFullName" TextColor="{Binding FieldsTextColor}" Text="{Binding MeasureFullNameTxt}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Keyboard>
+                                    <Keyboard x:FactoryMethod="Create">
+                                        <x:Arguments>
+                                            <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                        </x:Arguments>
+                                    </Keyboard>
+                                </Entry.Keyboard>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Skrócona nazwa:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="MeasureShortName" TextColor="{Binding FieldsTextColor}" Text="{Binding MeasureShortNameTxt}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource Separator}" />
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnSave" Command="{Binding SaveCommand}" Text="Zapisz" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

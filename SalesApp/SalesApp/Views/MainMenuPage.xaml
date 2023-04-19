@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.Views.MainMenuPage"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{Binding BackgroundColor}"
+             x:Name="MenuPage">
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding BackgroundColor}">
+        <!-- Place new controls here -->
+
+        <CollectionView ItemsSource="{Binding MySource}" >
+            <CollectionView.ItemsLayout >
+                <GridItemsLayout Orientation="Vertical"
+                        Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" WidthRequest="140" HeightRequest="145" BackgroundColor="{Binding BackColor}">
+                        <Frame WidthRequest="120" BackgroundColor="{Binding BackIconsColor}" HeightRequest="120" HasShadow="True" BorderColor="{Binding BorderColor}" CornerRadius="10" Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                            <StackLayout>
+                                <Image Source="{Binding BgImageSource}"  WidthRequest="100" HeightRequest="100">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding Source={x:Reference MenuPage},Path=BindingContext.NavigationCommand}" CommandParameter="{Binding Id}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="{Binding ItemTitle}" TextColor="{Binding TextColor}" WidthRequest="100" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

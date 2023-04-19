@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.Views.ConnectEditPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:effects="clr-namespace:SalesApp.Effects"
+             BackgroundColor="{Binding BackgroundColor}">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Parametry połączenia z urządzeniem" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold" TextColor="{Binding LabelTextColor}"></Label>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource Separator}" />
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0" >
+                        <Label  Text="Adres IP:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}"  >
+                            <Entry  x:Name="EntryIPAddr" TextColor="{Binding FieldsTextColor}" BackgroundColor="Transparent" IsEnabled="{Binding IPEntryEnable}" Keyboard="Telephone" Style="{StaticResource EntryFormStyle}" Text="{Binding IPAddress}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Port:" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16" TextColor="{Binding LabelTextColor}"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" >
+                            <Entry  x:Name="EntryPort" TextColor="{Binding FieldsTextColor}" BackgroundColor="Transparent" IsEnabled="{Binding PortEntryEnable}" Keyboard="Numeric" Style="{StaticResource EntryFormStyle}" Text="{Binding Port}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" IsVisible="True" Margin="0,5,0,0">
+                        <Label  Text="Kasa wirtualna SDF" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16" TextColor="{Binding LabelTextColor}"></Label>
+                        <Switch  x:Name="SwitchIsOnDevice"  HorizontalOptions="End" IsToggled="{Binding IsOnDevice}"></Switch>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Połącz automatycznie" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16" TextColor="{Binding LabelTextColor}"></Label>
+                        <Switch  x:Name="SwitchAutoConnect"  HorizontalOptions="End" IsToggled="{Binding IsAutoConnect}"></Switch>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource Separator}" />
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnCancel" BackgroundColor="{Binding BackgroundColor}" Command="{Binding GoBackCommand}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+                <Button x:Name="btnSave"   Command="{Binding ConnectCommand}" Text="Połącz" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

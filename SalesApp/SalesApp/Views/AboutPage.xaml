@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.Views.AboutPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Page Level Resources: Compatible with Xamarin Live Player -->
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{Binding BackgroundColor}">
+        <Grid.RowDefinitions>
+
+        </Grid.RowDefinitions>
+
+                    <ContentView Padding="0,4,0,4" VerticalOptions="FillAndExpand">
+                        <Image Source="startImage.png" VerticalOptions="Center" HeightRequest="220" />
+                    </ContentView>
+
+        
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                <Label FontSize="22" TextColor="{Binding LabelTextColor}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="SalesApp" FontAttributes="Bold" FontSize="22" />
+                                <Span Text=" " />
+                                <Span Text="1.0.2" ForegroundColor="{StaticResource LightTextColor}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="{Binding LabelTextColor}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Aplikacja mobilna przeznaczona do podstawowej obsługi drukarki Novitus, wystawiania paragonów, a także faktur. Wykorzystuje połączenie bezprzewodowe" />
+                                <Span Text=" " />
+                                <Span Text="TCP/IP" FontAttributes="Bold" />
+                                <Span Text="." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Button x:Name="btnSave" Text="Dowiedz się więcej" VerticalOptions="End" HorizontalOptions="FillAndExpand" Command="{Binding OpenWebCommand}" Style="{StaticResource BtnOkStyle}"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

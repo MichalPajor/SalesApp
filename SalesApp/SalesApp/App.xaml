@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Global Styles-->
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <!--BUTTON OK STYLE-->
+            <Style TargetType="Button" x:Key="BtnOkStyle">
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Margin" Value="5,0,5,0"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BackgroundColor" Value="#2196f1"/>
+                <Setter Property="CornerRadius" Value="15"/>
+            </Style>
+            <!--BUTTON CANCEL STYLE-->
+            <Style TargetType="Button" x:Key="BtnCancelStyle">
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Margin" Value="5,0,5,0"/>
+                <Setter Property="TextColor" Value="#2196f1"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BackgroundColor" Value="#fafafa"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="BorderColor" Value="LightGray"/>
+                <Setter Property="BorderRadius" Value="15"/>
+                <Setter Property="BorderWidth" Value="2"/>
+            </Style>
+            <!--FRAME FORM STYLE-->
+            <Style TargetType="Frame" x:Key="FrameFormStyle">
+                <Setter Property="BorderColor" Value="LightGray"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="BackgroundColor" Value="#fafafa"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="Padding" Value="2"/>
+            </Style>
+            <!--SEPARATOR STYLE-->
+            <Style x:Key="Separator" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Color" Value="Accent" />
+                <Setter Property="Margin" Value="0, 5, 0, 5" />
+                <Setter Property="Opacity" Value="0.5" />
+            </Style>
+            <!--ENTRY FORM STYLE-->
+            <Style x:Key="EntryFormStyle" TargetType="Entry">
+                <Setter Property="WidthRequest" Value="230" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

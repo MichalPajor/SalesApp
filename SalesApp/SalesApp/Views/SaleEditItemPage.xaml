@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="SalesApp.Views.SaleEditItemPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{Binding BackgroundColor}"
+             xmlns:effects="clr-namespace:SalesApp.Effects">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label  Text="Pozycja:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" ></Label>
+                        <Label  Text="{Binding ItemName}" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"></Label>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource Separator}" />
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="{Binding ItemTaxName, StringFormat='Cena [{0}]: '}" TextColor="{Binding LabelTextColor}"  VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" >
+                            <Entry x:Name="ProductValue" Text="{Binding ItemValue}" TextColor="{Binding FieldsTextColor}" IsReadOnly="{Binding IsPriceEnabled}" Style="{StaticResource EntryFormStyle}" Keyboard="Telephone">
+                                
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0" VerticalOptions="EndAndExpand">
+                        <Label  Text="Zmień cenę bazową:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" FontSize="14"></Label>
+                        <CheckBox x:Name="ChBoxChangeValue" IsChecked="{Binding ChangeValue}" VerticalOptions="Start" HorizontalOptions="End">
+                            <CheckBox.Behaviors>
+                                <xct:EventToCommandBehavior
+                                    EventName="CheckedChanged"
+                                    Command="{Binding CheckedChangedCommand}"/>
+                            </CheckBox.Behaviors>
+                        </CheckBox>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0" IsVisible="{Binding IsManualValueVisible}">
+                        <Label  Text="Cena bazowa dla ilości 1:" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="ProductBaseValue" Text="{Binding ItemBaseValue}"  TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}" Keyboard="Telephone">
+                                <Entry.Behaviors>
+                                    <xct:EventToCommandBehavior
+                                        EventName="TextChanged"
+                                        Command="{Binding SetValueByQttyCommand}"/>
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="{Binding ItemUnit, StringFormat='Rabat: '}" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="ProductDiscount" Text="{Binding ItemDiscount}" IsReadOnly="{Binding IsDiscountEnabled}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}" Keyboard="Telephone">
+                                <Entry.Behaviors>
+                                    <xct:EventToCommandBehavior
+                                        EventName="TextChanged"
+                                        Command="{Binding SetValueByQttyCommand}"/>
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="{Binding ItemUnit, StringFormat='Ilość [{0}]: '}" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}" >
+                            <Entry x:Name="ProductQuantity" Text="{Binding ItemQuantity}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}" Keyboard="Telephone">
+                                <Entry.Behaviors>
+                                    <xct:EventToCommandBehavior
+                                        EventName="TextChanged"
+                                        Command="{Binding SetValueByQttyCommand}"/>
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <BoxView Style="{StaticResource Separator}" />
+            <Button x:Name="btnDelete" Command="{Binding DeleteItemCommand}" BackgroundColor="{Binding BackgroundColor}" Text="Usuń" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="100" Style="{StaticResource BtnCancelStyle}"></Button>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnCancelEdit" Command="{Binding GoBackFromEditCommand}" BackgroundColor="{Binding BackgroundColor}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+                <Button x:Name="btnSave" Command="{Binding UpdateItemCommand}" Text="Zapisz" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

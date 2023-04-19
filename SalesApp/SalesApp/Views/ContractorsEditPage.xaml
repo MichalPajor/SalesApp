@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.Views.ContractorsEditPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{Binding BackgroundColor}"
+             xmlns:effects="clr-namespace:SalesApp.Effects">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <ScrollView>
+                <StackLayout>
+                    <Label  Text="Dodaj nabywcę" TextColor="{Binding LabelTextColor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="18" FontAttributes="Bold"></Label>
+                    <BoxView Style="{StaticResource Separator}" />
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="NIP:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="NIP" Text="{Binding InvoiceNIP}" TextColor="{Binding FieldsTextColor}"  Style="{StaticResource EntryFormStyle}" >
+                                <Entry.Keyboard>
+                                    <Keyboard x:FactoryMethod="Create">
+                                        <x:Arguments>
+                                            <KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+                                        </x:Arguments>
+                                    </Keyboard>
+                                </Entry.Keyboard>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <ActivityIndicator IsRunning="{Binding ApiLoading}" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" VerticalOptions="Center"></ActivityIndicator>
+                        <Button x:Name="btnGetDevInfo" Command="{Binding GetInfoFromAPI}" Text="Pobierz" VerticalOptions="EndAndExpand" HorizontalOptions="End" Style="{StaticResource BtnOkStyle}"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Nazwa:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="InvoiceName" Text="{Binding InvoiceName}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Keyboard>
+                                    <Keyboard x:FactoryMethod="Create">
+                                        <x:Arguments>
+                                            <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                        </x:Arguments>
+                                    </Keyboard>
+                                </Entry.Keyboard>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Miejscowość:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="InvoiceLocalCity" Text="{Binding InvoiceCity}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Keyboard>
+                                    <Keyboard x:FactoryMethod="Create">
+                                        <x:Arguments>
+                                            <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                        </x:Arguments>
+                                    </Keyboard>
+                                </Entry.Keyboard>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Ulica:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="InvoiceStreet" Text="{Binding InvoiceStreet}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Keyboard>
+                                    <Keyboard x:FactoryMethod="Create">
+                                        <x:Arguments>
+                                            <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                        </x:Arguments>
+                                    </Keyboard>
+                                </Entry.Keyboard>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Numer:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="InvoiceStreetNum" Text="{Binding InvoiceStreetNum}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Keyboard>
+                                    <Keyboard x:FactoryMethod="Create">
+                                        <x:Arguments>
+                                            <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                        </x:Arguments>
+                                    </Keyboard>
+                                </Entry.Keyboard>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Numer lokalu:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="InvoiceLocalNum" Text="{Binding InvoiceLocalNum}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Keyboard>
+                                    <Keyboard x:FactoryMethod="Create">
+                                        <x:Arguments>
+                                            <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                        </x:Arguments>
+                                    </Keyboard>
+                                </Entry.Keyboard>
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label  Text="Kod pocztowy:" VerticalOptions="Center" TextColor="{Binding LabelTextColor}" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Frame Style="{StaticResource FrameFormStyle}" BackgroundColor="{Binding BackgroundColor}" BorderColor="{Binding FieldsBorderColor}">
+                            <Entry x:Name="InvoicePostCode" Text="{Binding InvoicePostCode}" TextColor="{Binding FieldsTextColor}" Style="{StaticResource EntryFormStyle}">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource Separator}" />
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnCancelEdit" Command="{Binding GoBackFromEditCommand}" BackgroundColor="{Binding BackgroundColor}" Text="Anuluj" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Style="{StaticResource BtnCancelStyle}"></Button>
+                <Button x:Name="btnSave" Command="{Binding UpdateCommand}" Text="Zapisz" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnOkStyle}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
